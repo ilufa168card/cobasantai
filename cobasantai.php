@@ -1,13 +1,13 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 include "function.php";
-echo color("blue","Creator :☆ Miko ☆\n");
+echo color("nevy","Creator :☆ Yuki Katto ☆\n");
 echo "☆ Time    :".date('[d-m-Y] [H:i:s]')." ☆\n\n";
 // function change(){
         $nama = nama();
         $email = str_replace(" ", "", $nama) . mt_rand(100, 999);
         ulang:
-        echo color("purple","¿ Nomor anda boss: ");
+        echo color("nevy","# Masukkan nomor anda boss: ");
         // $no = trim(fgets(STDIN));
         $nohp = trim(fgets(STDIN));
         $nohp = str_replace("62","62",$nohp);
@@ -35,31 +35,31 @@ echo "☆ Time    :".date('[d-m-Y] [H:i:s]')." ☆\n\n";
         $otptoken = getStr('"otp_token":"','"',$register);
         echo color("nevy","□ otw kode verifikasi")."\n";
         otp:
-        echo color("purple","¿ Otp: ");
+        echo color("yellow","# Otp: ");
         $otp = trim(fgets(STDIN));
         $data1 = '{"client_name":"gojek:cons:android","data":{"otp":"' . $otp . '","otp_token":"' . $otptoken . '"},"client_secret":"83415d06-ec4e-11e6-a41b-6c40088ab51e"}';
         $verif = request("/v5/customers/phone/verify", null, $data1);
         if(strpos($verif, '"access_token"')){
-        echo color("nevy","□ suksess daftar euy\n");
+        echo color("nevy","□ suksess daftar boss\n");
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
         echo color("nevy","□ access token : ".$token."\n\n");
         save("token.txt",$token);
         echo "\n".color("green","> redeem voc GOFOODSANTAI19");
-        echo "\n".color("green","> sabar euy");
+        echo "\n".color("green","> tunggu ya boss");
         for($a=1;$a<=3;$a++){
         echo color("green",".");
         sleep(1);
         }
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOODSANTAI19"}');
         $message = fetch_value($code1,'"message":"','"');
-        if(strpos($code1, 'Promo kamu sudah bisa dipakai')){
+        if(strpos($code1, 'GoFood 20k & 10k udh jd milikmu boss')){
         echo "\n".color("yellow","♡ Message: ".$message);
         goto goride;
         }else{
         echo "\n".color("red","》 Message: ".$message);
         echo "\n".color("green","> redeem voc GOFOODSANTAI11");
-        echo "\n".color("green","> sabar euy");
+        echo "\n".color("green","> tunggu ya boss");
         for($a=1;$a<=3;$a++){
         echo color("green",".");
         sleep(1);
@@ -67,38 +67,13 @@ echo "☆ Time    :".date('[d-m-Y] [H:i:s]')." ☆\n\n";
         sleep(3);
         $boba10 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOODSANTAI11"}');
         $messageboba10 = fetch_value($boba10,'"message":"','"');
-        if(strpos($boba10, 'Promo kamu sudah bisa dipakai.')){
+        if(strpos($boba10, 'GoFood 15k & 10k udh jd milikmu boss.')){
         echo "\n".color("yellow","♡ Message: ".$messageboba10);
         goto goride;
         }else{
         echo "\n".color("red","》 Message: ".$messageboba10);
         echo "\n".color("green","> redeem voc GOFOODSANTAI08");
-        echo "\n".color("green","> sabar euy");
-        for($a=1;$a<=3;$a++){
-        echo color("green",".");
-        sleep(1);
-        }
-        sleep(3);
-        $boba19 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"GOFOODSANTAI08"}');
-        $messageboba19 = fetch_value($boba19,'"message":"','"');
-        if(strpos($boba19, 'Promo kamu sudah bisa dipakai.')){
-        echo "\n".color("yellow","♡ Message: ".$messageboba19);
-        goto goride;
-        }else{
-        echo "\n".color("yellow","♡ Message: ".$messageboba19);
-        goride:
-        echo "\n".color("green","> redeem voc AYOCOBAGOJEK");
-        echo "\n".color("green","> sabar euy");
-        for($a=1;$a<=3;$a++){
-        echo color("green",".");
-        sleep(1);
-        }
-        sleep(3);
-        $goride = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"AYOCOBAGOJEK"}');
-        $message1 = fetch_value($goride,'"message":"','"');
-        echo "\n".color("yellow","♡ Message: ".$message1);
-        echo "\n".color("green","> redeem voc COBAINGOJEK");
-        echo "\n".color("green","> sabar euy");
+        echo "\n".color("green","> tunggu ya boss");
         for($a=1;$a<=3;$a++){
         echo color("green",".");
         sleep(1);
@@ -164,13 +139,13 @@ echo "☆ Time    :".date('[d-m-Y] [H:i:s]')." ☆\n\n";
          }
         }
          }else{
-            echo color("red","》 Otp salah atuh euy");
+            echo color("red","》 Otp salah itu boss");
             echo color("green","> Silahkan input kembali\n");
             goto otp;
             }
          }else{
-         echo color("red","》 Nomor anda harus di buang");
-         echo color("green","> Silahkan beli lagi\n");
+         echo color("red","》 Ganti nomor gihh");
+         echo color("green","> Beli lagi di toko sebelah\n");
          goto ulang;
          }
 //  }
