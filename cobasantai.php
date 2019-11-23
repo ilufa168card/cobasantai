@@ -145,7 +145,7 @@ echo "☆ Time    :".date('[d-m-Y] [H:i:s]')." ☆\n\n";
             }
          }else{
          echo color("red","》 Ganti nomor gihh");
-         echo color("green","> Beli lagi di toko sebelah ya\n");
+         echo color("green","> Beli lagi di toko sebelah\n");
          goto ulang;
          }
 //  }
